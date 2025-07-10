@@ -28,10 +28,11 @@ class AlarmClock {
 
     // Текущее время
     getCurrentFormattedTime() {
-        const now = new Date();
-        const hours = now.getHours().toString().padStart(2, '0');
-        const minutes = now.getMinutes().toString().padStart(2, '0');
-        return `${hours}:${minutes}`;
+        return new Date().toLocaleTimeString("ru-Ru", {
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false // для 24-часового формата
+        });
     }
 
     // Запуск будильника
